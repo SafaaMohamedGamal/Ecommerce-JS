@@ -37,5 +37,5 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const ui = new UI();
   const products = new Products();
   //get all products
-  products.getProducts().then(data=>console.log(data))
+  products.getProducts().then(data=>console.log("data",data))
 })
