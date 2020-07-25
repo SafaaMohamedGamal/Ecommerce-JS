@@ -98,6 +98,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     Storage.saveProducts(products);
   })
   .then(()=>{
-
+    ui.getBagButtons();
   })
 })
