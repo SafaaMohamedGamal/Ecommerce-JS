@@ -18,7 +18,15 @@ class Products {
     try {
       let result = await fetch('products.json');
       let data = await result.json();
-      return data;
+      console.log("======before");
+      let products = data.items;
+      console.log("======after");
+      products = products.map(item=>{
+        const {title, price} = item.fields;
+        const {id} = item.sys;
+        const image = item.fields.image.fields.file.url;
+        return {title, price, id, image};
+      })
     } catch (error) {
       console.log(error);
     }
@@ -37,5 +45,5 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const ui = new UI();
   const products = new Products();
   //get all products
-  products.getProducts().then(data=>console.log("data",data))
+  products.getProducts().then(products=>console.log(products))
 })
